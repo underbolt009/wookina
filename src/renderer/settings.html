@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break Enforcer — Preferences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body class="settings-body">
+  <div class="settings-wrapper">
+    <!-- Header Banner -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-circle">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h1 class="app-title">Break Enforcer</h1>
+          <p class="app-subtitle">Stay healthy, productive, and focused with scheduled breaks</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div id="live-status-pill" class="status-pill working">
+          <span class="status-dot"></span>
+          <span id="live-status-text">Next break: --:--</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="settings-grid">
+      <!-- Left Column: Configuration Forms -->
+      <section class="config-column">
+        <!-- Timer Settings -->
+        <div class="settings-card">
+          <h2 class="card-title">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="0" ry="0"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Schedule & Intervals
+          </h2>
+
+          <!-- Work Interval -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="work-interval">Work Interval</label>
+              <span id="work-interval-val" class="val-badge">60 mins</span>
+            </div>
+            <input type="range" id="work-interval" min="5" max="120" step="1" value="60" class="custom-slider">
+            <div class="preset-buttons">
+              <button type="button" class="preset-btn" data-target="work-interval" data-val="25">25m (Pomodoro)</button>
+              <button type="button" class="preset-btn" data-target="work-interval" data-val="45">45m</button>
+              <button type="button" class="preset-btn" data-target="work-interval" data-val="50">50m</button>
+              <button type="button" class="preset-btn active" data-target="work-interval" data-val="60">60m (Default)</button>
+              <button type="button" class="preset-btn" data-target="work-interval" data-val="90">90m</button>
+            </div>
+          </div>
+
+          <!-- Break Duration -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="break-duration">Break Duration</label>
+              <span id="break-duration-val" class="val-badge">15 mins</span>
+            </div>
+            <input type="range" id="break-duration" min="1" max="30" step="1" value="15" class="custom-slider">
+            <div class="preset-buttons">
+              <button type="button" class="preset-btn" data-target="break-duration" data-val="5">5m</button>
+              <button type="button" class="preset-btn" data-target="break-duration" data-val="10">10m</button>
+              <button type="button" class="preset-btn active" data-target="break-duration" data-val="15">15m (Default)</button>
+              <button type="button" class="preset-btn" data-target="break-duration" data-val="20">20m</button>
+            </div>
+          </div>
+
+          <!-- Hold-to-Skip Friction -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="skip-hold">Hold-to-Skip Safety Friction</label>
+              <span id="skip-hold-val" class="val-badge">5s</span>
+            </div>
+            <input type="range" id="skip-hold" min="3" max="15" step="1" value="5" class="custom-slider">
+            <small class="form-hint">Prevents accidental dismissal while guaranteeing you can exit anytime in an emergency.</small>
+          </div>
+        </div>
+
+        <!-- Companion & Appearance -->
+        <div class="settings-card">
+          <h2 class="card-title">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Companion & Presentation
+          </h2>
+
+          <!-- Companion Selector Cards -->
+          <div class="character-cards" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            <div class="char-card active" data-char="dinki" style="flex-direction: row; text-align: left; padding: 12px 14px; gap: 12px;">
+              <div class="char-avatar dinki-avatar">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div class="char-info" style="flex-grow: 1;">
+                <span class="char-name" style="font-size: 0.92rem;">Dinki</span>
+              </div>
+            </div>
+
+            <div class="char-card" data-char="poko" style="flex-direction: row; text-align: left; padding: 12px 14px; gap: 12px;">
+              <div class="char-avatar poko-avatar" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25);">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="9" cy="10" r="1.5" fill="currentColor"></circle>
+                  <circle cx="15" cy="10" r="1.5" fill="currentColor"></circle>
+                  <path d="M10 14c.8 1 2.2 1 3 0"></path>
+                </svg>
+              </div>
+              <div class="char-info" style="flex-grow: 1;">
+                <span class="char-name" style="font-size: 0.92rem;">Poko</span>
+              </div>
+            </div>
+
+            <div class="char-card" data-char="ren" style="flex-direction: row; text-align: left; padding: 12px 14px; gap: 12px;">
+              <div class="char-avatar ren-avatar" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25);">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="char-info" style="flex-grow: 1;">
+                <span class="char-name" style="font-size: 0.92rem;">Ren</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Character Entrance Side -->
+          <div class="form-group" style="margin-top: 16px;">
+            <label>Entrance Side</label>
+            <div class="segmented-control">
+              <button type="button" class="segment-btn active" data-side="random">
+                <svg class="ui-btn-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 3 21 3 21 8"></polyline>
+                  <line x1="4" y1="20" x2="21" y2="3"></line>
+                  <polyline points="21 16 21 21 16 21"></polyline>
+                  <line x1="15" y1="15" x2="21" y2="21"></line>
+                  <line x1="4" y1="4" x2="9" y2="9"></line>
+                </svg>
+                Alternate Random
+              </button>
+              <button type="button" class="segment-btn" data-side="right">
+                <svg class="ui-btn-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                Right Side
+              </button>
+              <button type="button" class="segment-btn" data-side="left">
+                <svg class="ui-btn-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Left Side
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio & Alerts -->
+        <div class="settings-card">
+          <h2 class="card-title">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            Audio & Alerts
+          </h2>
+
+          <div class="toggle-row">
+            <div>
+              <span class="toggle-title">Break Chimes</span>
+              <span class="toggle-desc">Plays gentle tone upon break start and completion</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="sound-toggle" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top: 14px;">
+            <div class="form-label-row">
+              <label for="sound-volume">Volume</label>
+              <span id="sound-volume-val" class="val-badge">70%</span>
+            </div>
+            <input type="range" id="sound-volume" min="0" max="1" step="0.05" value="0.7" class="custom-slider">
+          </div>
+        </div>
+
+        <!-- System Integration -->
+        <div class="settings-card">
+          <h2 class="card-title">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="0" ry="0"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            System Integration
+          </h2>
+
+          <div class="toggle-row">
+            <div>
+              <span class="toggle-title">Start Automatically on Login</span>
+              <span class="toggle-desc">Launches minimized to system tray when your computer starts</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="autostart-toggle">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Interactive Character Preview Stage -->
+      <section class="preview-column">
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-badge">
+              <svg class="ui-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>Companion Preview</span>
+            </div>
+            <button type="button" id="test-voice-btn" class="secondary-btn btn-sm">
+              <svg class="ui-btn-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span>Test Chime</span>
+            </button>
+          </div>
+
+          <div class="preview-stage-box">
+            <div id="preview-character-container" class="preview-character breathing">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="preview-quote-box">
+            <p id="preview-quote">"Time for a well-deserved break! Step back from your screen and take a breather."</p>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="preview-actions">
+            <button type="button" id="trigger-break-btn" class="primary-btn glow-btn">
+              <svg class="ui-btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>Take Break Now (Test Overlay)</span>
+            </button>
+            <div class="secondary-actions-row">
+              <button type="button" id="toggle-pause-btn" class="secondary-btn">
+                <svg class="ui-btn-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+                Pause Timer
+              </button>
+              <button type="button" id="reset-defaults-btn" class="secondary-btn">
+                <svg class="ui-btn-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+                Reset Defaults
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Save Notification Toast -->
+    <div id="save-toast" class="toast">
+      <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span>Settings Saved Successfully</span>
+    </div>
+  </div>
+
+  <script src="characters.js"></script>
+  <script src="audio.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

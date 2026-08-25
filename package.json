@@ -1,0 +1,42 @@
+{
+  "name": "waifu-break-enforcer",
+  "version": "1.0.0",
+  "description": "Desktop anime character break enforcer with multi-monitor overlay and smart scheduling",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/scheduler.test.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "break-timer",
+    "pomodoro",
+    "anime",
+    "health",
+    "overlay"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.waifu.break.enforcer",
+    "productName": "Waifu Break Enforcer",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

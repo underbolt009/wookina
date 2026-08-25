@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# Production / Electron Build outputs
+dist/
+build/
+out/
+release/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and IDE files
+.env
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local settings / Scratch / 3D models
+waifu-break-settings.json
+.settings.json
+scratch/
+character-models/

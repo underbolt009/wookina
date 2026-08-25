@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break Overlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body class="theme-kawaii-dark">
+  <!-- Fullscreen Scrim Backdrop -->
+  <div id="scrim" class="scrim">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+  </div>
+
+  <main id="app-container" class="overlay-container side-right">
+    <!-- Floating Central HUD -->
+    <section class="break-hud" aria-label="Break Status HUD">
+      <div class="hud-card glass-panel">
+        <header class="hud-header">
+          <div id="persona-badge" class="badge">Break Assistant</div>
+          <span class="break-title">Mandatory Recharge</span>
+        </header>
+
+        <!-- Properly Shaped Linear Countdown Display -->
+        <div class="timer-display-wrapper">
+          <div class="timer-text-container">
+            <span id="countdown-timer" class="countdown-digits">15:00</span>
+            <span class="timer-subtext">TIME REMAINING</span>
+          </div>
+          <div class="progress-bar-track">
+            <div id="timer-progress-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="wellness-tip-container">
+          <svg class="tip-svg-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <p id="wellness-tip" class="tip-text">Step away, stretch your shoulders, and rest your eyes.</p>
+        </div>
+
+        <!-- Linear Friction Hold-to-Skip Escape Hatch -->
+        <footer class="hud-footer">
+          <div class="skip-wrapper">
+            <button id="skip-btn" class="skip-button" type="button" aria-label="Hold to skip break">
+              <div id="skip-charge-fill" class="skip-charge-fill"></div>
+              <div class="skip-btn-content">
+                <span class="skip-btn-title">Hold to Skip</span>
+                <span id="skip-hint" class="skip-btn-sub">Hold 5s</span>
+              </div>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Character Stage -->
+    <section id="waifu-stage" class="waifu-stage" aria-label="Character">
+      <!-- Speech Bubble -->
+      <div id="speech-bubble" class="speech-bubble glass-panel">
+        <p id="speech-text" class="speech-content">Time for a well-deserved break! Step back from your screen and take a breather.</p>
+        <div class="speech-tail"></div>
+      </div>
+
+      <!-- Character Sprite -->
+      <div id="waifu-character" class="waifu-character breathing">
+        <!-- Image inserted via JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="characters.js"></script>
+  <script src="audio.js"></script>
+  <script src="overlay.js"></script>
+</body>
+</html>
